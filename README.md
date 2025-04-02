@@ -163,7 +163,3 @@ curl -X DELETE http://127.0.0.1:8000/api/events/1/ \
 ## 📜 License
 
 本專案採用 MIT 授權條款，請自由使用、修改與散佈，詳情請見 [LICENSE](./LICENSE)。
-
----
-
-需要我幫你貼到 README.md 裡，或是教你怎麼貼上並 push 到 GitHub 上嗎？💗
