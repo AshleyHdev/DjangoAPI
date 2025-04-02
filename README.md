@@ -1,5 +1,171 @@
 # 🗓️ Smart Calendar API with Django 🐍
 
+This is a **Django + Django REST Framework**-based smart calendar system, featuring **user authentication, JWT token verification, and full event CRUD APIs**. It is ideal for personal productivity tools, team scheduling systems, and smart calendar integrations.
+
+![Django](https://img.shields.io/badge/Django-5.1.7-green?logo=django&style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
+![SQLite](https://img.shields.io/badge/SQLite-3-lightgrey?logo=sqlite)
+![JWT](https://img.shields.io/badge/JWT-Authorization-yellow)
+
+---
+
+## 📌 Use Case Scenarios
+
+This isn't just a simple calendar—it helps **users manage time and tasks smartly**:
+
+✔ **For productivity enthusiasts**  
+- Manage daily events, notes, and to-dos  
+- Build a custom scheduling assistant with frontend integration
+
+✔ **For team collaboration**  
+- Create events for each team member  
+- Connect to a notification system for reminders
+
+✔ **For students & lifestyle planners**  
+- Track study goals, assignment deadlines  
+- Use the calendar for organizing life and personal projects 💗
+
+---
+
+## 🧩 API Endpoints
+
+📅 Event Management
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST   | `/api/events/` | Create a new event |
+| GET    | `/api/events/` | Retrieve all events |
+| GET    | `/api/events/{id}/` | Retrieve a specific event |
+| PUT    | `/api/events/{id}/` | Update an event |
+| DELETE | `/api/events/{id}/` | Delete an event |
+
+🔑 User Authentication
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST   | `/api/register/` | Register a new user |
+| POST   | `/api/token/` | Login and obtain JWT token |
+| POST   | `/api/token/refresh/` | Get a new access token using refresh token |
+
+---
+
+## 🌟 Features
+
+✅ User registration & login  
+✅ JWT-based authentication  
+✅ Full CRUD for calendar events  
+✅ Swagger auto-generated documentation  
+✅ ReDoc support  
+✅ CORS enabled for cross-origin requests  
+✅ SQLite as the default database
+
+---
+
+## 📖 API Documentation
+
+Once the server is running, you can view the API docs at:
+
+- **Swagger UI:** [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
+- **ReDoc:** [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+---
+
+## 🚀 Installation & Startup
+
+### 1️⃣ Create virtual environment and install dependencies
+```bash
+git clone https://github.com/AshleyHdev/DjangoAPI.git
+cd DjangoAPI
+python3 -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 2️⃣ Initialize the database
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 3️⃣ Start the development server
+```bash
+python manage.py runserver
+```
+
+---
+
+## 📁 Project Structure
+```bash
+DjangoAPI/
+├── core/               # Project settings & URL configuration
+├── events/             # Event management app
+├── users/              # User app
+├── templates/          # Swagger UI customization
+├── manage.py           # Django entry point
+├── requirements.txt    # Dependency list
+└── .gitignore          # Files to exclude from version control
+```
+
+---
+
+## 🧪 Sample API Requests (via curl)
+
+🔐 Login to get token:
+```bash
+curl -X POST http://127.0.0.1:8000/api/token/ \
+     -H "Content-Type: application/json" \
+     -d '{"username": "your_username", "password": "your_password"}'
+```
+
+📅 Create a new event:
+```bash
+curl -X POST http://127.0.0.1:8000/api/events/ \
+     -H "Authorization: Bearer your_access_token" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "title": "Finish Django project",
+           "description": "Upload it to GitHub",
+           "start_time": "2025-04-02T09:00:00Z",
+           "end_time": "2025-04-02T10:00:00Z",
+           "is_all_day": false
+         }'
+```
+
+🔍 Retrieve an event:
+```bash
+curl -X GET http://127.0.0.1:8000/api/events/1/ \
+     -H "Authorization: Bearer your_access_token"
+```
+
+🗑️ Delete an event:
+```bash
+curl -X DELETE http://127.0.0.1:8000/api/events/1/ \
+     -H "Authorization: Bearer your_access_token"
+```
+
+---
+
+## 🛠 Troubleshooting
+
+1️⃣ 401 Unauthorized: Make sure `Authorization: Bearer <token>` is included in the headers  
+2️⃣ Database errors: Did you forget to run `migrate`?  
+3️⃣ 404 Not Found: Check if the event ID exists first
+
+---
+
+## 💙 Author & Contributions
+
+Author: [@AshleyH.dev](https://github.com/AshleyHdev) 💻🎨  
+Feel free to star ⭐, fork 🍴, or submit PRs!
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+# 🗓️ Smart Calendar API with Django 🐍
+
 這是一個基於 **Django + Django REST Framework** 打造的智慧行事曆系統，支援使用者註冊、JWT 驗證，並提供完整的 **行程 CRUD 管理 API**。適合用於個人日程工具、團隊排程服務等場景。
 
 ![Django](https://img.shields.io/badge/Django-5.1.7-green?logo=django&style=flat-square)
